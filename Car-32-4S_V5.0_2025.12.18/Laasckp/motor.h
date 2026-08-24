@@ -1,0 +1,37 @@
+#ifndef __MOTOR_H_
+#define __MOTOR_H_
+
+//小车用到了四个减速电机
+//电机减速比为1：48
+//电机在6V电压下空转速为210转
+
+#include "interface.h"//模块接口定义头文件
+
+extern int left_speed_duty;     //左边电机PWM
+extern int right_speed_duty;   //右边电机PWM
+extern unsigned char move_rec_flag;  //电机驱动标志位
+extern unsigned char stop_display_flag;  //暂停显示标志位
+extern unsigned char Time_10us_motor; //10us计数器，作为电机驱动的基本计数器
+extern unsigned int speed_count;        //占空比计数器 100次一周期
+
+void CarMove(void);//电机驱动函数
+
+void CarGo(void); //车前进
+void CarBack(void);//车后退
+void CarLeft(void);//车左转
+void CarRight(void);//车右转
+void CarStop(void);//车滑行暂停 电机驱动芯片为休眠状态。
+void Car_Brake(void);//车刹车暂停
+
+void motor_init(void); //电机驱动初始化
+
+void CarBack_Trailing(void);                //电机循迹后退
+void CarLeft_Trailing(void);                //电机循迹左转
+void CarRight_Trailing(void);               //电机循迹后退
+void CarBack_obstacle_avoidance(void);      //电机避障后退
+void CarLeft_obstacle_avoidance(void);      //电机避障左转
+void CarRight_obstacle_avoidance(void);    //电机避障右转
+void stop_display_execute(void);           //电机暂停显示执行函数
+
+#endif
+

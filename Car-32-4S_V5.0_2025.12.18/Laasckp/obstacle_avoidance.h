@@ -1,0 +1,13 @@
+#ifndef __OBSTACLE_AVOIDANCE_H_
+#define __OBSTACLE_AVOIDANCE_H_
+
+#include "interface.h"//模块接口定义头文件
+
+extern unsigned char obstacle_avoidance_flag;          //红外避障执行标志位
+extern unsigned char obstacle_avoidance_display_flag; //红外避障显示标志位
+
+void obstacle_avoidance_detector(void);             //红外避障检测函数
+void obstacle_avoidance_init(void);                //红外避障初始化
+void obstacle_avoidance_display_execute(void);   //红外避障显示和执行函数
+
+#endif
